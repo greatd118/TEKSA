@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Kegiatan — TEKSA X TKJ 1</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/galeri.css">
+</head>
+<body>
+
+  <div class="statusbar">
+    <div class="statusbar__inner">
+      <span class="statusbar__prompt">root@teksa:~$ ls -la /galeri</span>
+      <span class="statusbar__ping"><span class="statusbar__dot"></span> ONLINE · <span data-clock>00:00:00</span></span>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/logo.png" alt="Logo TEKSA">
+        TEKSA <span>· X TKJ 1</span>
+      </a>
+      <button class="navbar__toggle" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__links">
+        <li><a href="index.html" class="navbar__link">home</a></li>
+        <li><a href="profil.html" class="navbar__link">profil</a></li>
+        <li><a href="struktur.html" class="navbar__link">struktur</a></li>
+        <li><a href="anggota.html" class="navbar__link">anggota</a></li>
+        <li><a href="jadwal.html" class="navbar__link">jadwal</a></li>
+        <li><a href="galeri.html" class="navbar__link">galeri</a></li>
+        <li><a href="akun.html" class="navbar__link">akun</a></li>
+        <li><a href="kontak.html" class="navbar__link">kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section container" style="padding-top: 48px;">
+      <p class="eyebrow">Dokumentasi</p>
+      <h1 class="page-title">Galeri Kegiatan</h1>
+      <p class="page-sub">Momen-momen kelas X TKJ 1. Foto masih placeholder, tinggal diganti begitu ada dokumentasi.</p>
+
+      <div class="gallery-filters">
+        <button class="btn filter-btn is-active" data-filter="all" style="border-color: var(--accent-green); color: var(--accent-green);">Semua</button>
+        <button class="btn filter-btn" data-filter="kelas">Kegiatan Kelas</button>
+        <button class="btn filter-btn" data-filter="praktikum">Praktikum</button>
+        <button class="btn filter-btn" data-filter="sekolah">Acara Sekolah</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Tutup">✕</button>
+    <div class="lightbox__content" id="lightboxContent"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>&copy; 2026 TEKSA — X TKJ 1 SMKN 1 Tanjunganom</span>
+      <span>Made by <span class="footer__creator">&lt;creator&gt;</span></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/galeri.js"></script>
+</body>
+</html>
