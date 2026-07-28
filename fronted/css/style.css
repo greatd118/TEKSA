@@ -1,0 +1,504 @@
+/* ============================================
+   TEKSA — X TKJ 1 · Global Stylesheet
+   Konsep: Network Operations Center / Terminal
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Palette */
+  --bg: #0a0e14;
+  --surface: #0f1720;
+  --surface-raised: #141e29;
+  --border: #1e2b38;
+  --border-bright: #2a3f52;
+
+  --accent-green: #00ff9d;
+  --accent-green-dim: #00b876;
+  --accent-cyan: #00d4ff;
+  --accent-red: #ff3860;
+  --accent-amber: #ffb347;
+
+  --text-primary: #e8edf2;
+  --text-secondary: #8b95a7;
+  --text-dim: #4d5868;
+
+  --font-display: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius: 3px;
+  --max-width: 1120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 157, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 157, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent-green);
+  color: var(--bg);
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   Status bar (terminal prompt strip)
+   ============================================ */
+.statusbar {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  position: relative;
+  z-index: 2;
+}
+
+.statusbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 7px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.statusbar__prompt {
+  color: var(--accent-green-dim);
+  white-space: nowrap;
+}
+
+.statusbar__ping {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.statusbar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 14, 20, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.navbar__brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.navbar__brand span {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar__link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.navbar__link:hover {
+  color: var(--accent-green);
+  background: rgba(0, 255, 157, 0.06);
+}
+
+.navbar__link.is-active {
+  color: var(--accent-green);
+}
+
+.navbar__link.is-active::before {
+  content: '> ';
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navbar__toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--accent-green);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 860px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    gap: 2px;
+    display: none;
+  }
+
+  .navbar__links.is-open {
+    display: flex;
+  }
+
+  .navbar__link {
+    padding: 12px 14px;
+  }
+}
+
+/* ============================================
+   Typography helpers
+   ============================================ */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent-green);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.page-title {
+  font-size: clamp(28px, 5vw, 44px);
+  margin: 12px 0 8px;
+}
+
+.page-sub {
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 60ch;
+}
+
+.section {
+  padding: 56px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-head {
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   Cards / panels
+   ============================================ */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.panel--interactive {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.panel--interactive:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 11px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-bright);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.btn--primary {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.btn--primary:hover {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  color: var(--bg);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   Badges
+   ============================================ */
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-bright);
+  color: var(--text-secondary);
+}
+
+.badge--green {
+  border-color: var(--accent-green-dim);
+  color: var(--accent-green);
+}
+
+.badge--cyan {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 32px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.footer__creator {
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff3860, #ffb347, #00ff9d, #00d4ff, #ff3860);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rgb-flow 4s linear infinite;
+}
+
+@keyframes rgb-flow {
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__creator {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: var(--accent-green);
+  }
+}
+
+/* ============================================
+   Utility
+   ============================================ */
+.text-center { text-align: center; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+  margin: 32px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  border: 1px dashed var(--border-bright);
+  border-radius: var(--radius);
+}

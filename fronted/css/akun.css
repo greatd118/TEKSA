@@ -1,0 +1,159 @@
+/* ============================================
+   Akun page
+   ============================================ */
+
+.auth-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.auth-tab {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.auth-tab.is-active {
+  background: var(--accent-green);
+  border-color: var(--accent-green);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.auth-panel {
+  display: none;
+}
+
+.auth-panel.is-active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent-green);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+
+.form-msg {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  display: none;
+}
+
+.form-msg.is-error {
+  display: block;
+  background: rgba(255, 56, 96, 0.08);
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+}
+
+.form-msg.is-success {
+  display: block;
+  background: rgba(0, 255, 157, 0.08);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+}
+
+.profile-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.profile-card__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--accent-green);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.profile-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-card__title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.profile-card__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.profile-card__bio {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.search-result-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
