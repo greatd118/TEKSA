@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur Organisasi — TEKSA X TKJ 1</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/struktur.css">
+</head>
+<body>
+
+  <div class="statusbar">
+    <div class="statusbar__inner">
+      <span class="statusbar__ping"><span class="statusbar__dot"></span> ONLINE · <span data-clock>00:00:00</span></span>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-badge"><img src="assets/logo.png" alt="Logo TEKSA"></span>
+        TEKSA <span>· X TKJ 1</span>
+      </a>
+      <button class="navbar__toggle" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__links">
+        <li><a href="index.html" class="navbar__link">home</a></li>
+        <li><a href="profil.html" class="navbar__link">profil</a></li>
+        <li><a href="struktur.html" class="navbar__link">struktur</a></li>
+        <li><a href="anggota.html" class="navbar__link">anggota</a></li>
+        <li><a href="jadwal.html" class="navbar__link">jadwal</a></li>
+        <li><a href="galeri.html" class="navbar__link">galeri</a></li>
+        <li><a href="akun.html" class="navbar__link">akun</a></li>
+        <li><a href="kontak.html" class="navbar__link">kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section container" style="padding-top: 48px;">
+      <p class="eyebrow">Kepengurusan Kelas</p>
+      <h1 class="page-title">Struktur Organisasi</h1>
+      <p class="page-sub">Diperbarui otomatis begitu siswa mengklaim jabatan lewat halaman <a href="akun.html" style="color: var(--accent-cyan); text-decoration: underline;">akun</a>. Belum diklaim = masih tag placeholder.</p>
+
+      <div class="org-tree">
+        <div class="org-node org-node--root">
+          <div class="org-node__role">Wali Kelas</div>
+          <div class="org-node__name">&lt;wali_kelas&gt;</div>
+        </div>
+        <div class="org-connector"></div>
+        <div class="org-node org-node--root">
+          <div class="org-node__role">Ketua Kelas</div>
+          <div class="org-node__name is-placeholder" data-role="ketua_kelas">&lt;ketua_kelas&gt;</div>
+        </div>
+        <div class="org-connector"></div>
+        <div class="org-row">
+          <div class="org-node">
+            <div class="org-node__role">Wakil Ketua</div>
+            <div class="org-node__name is-placeholder" data-role="wakil_ketua">&lt;wakil_ketua&gt;</div>
+          </div>
+          <div class="org-node">
+            <div class="org-node__role">Sekretaris</div>
+            <div class="org-node__name is-placeholder" data-role="sekertaris">&lt;sekertaris&gt;</div>
+          </div>
+          <div class="org-node">
+            <div class="org-node__role">Bendahara</div>
+            <div class="org-node__name is-placeholder" data-role="bendahara">&lt;bendahara&gt;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-members">
+        <p class="org-members__title">// Anggota Kelas</p>
+        <div class="org-members__grid">
+          <span class="org-member-chip">&lt;anggota&gt;</span>
+        </div>
+        <p class="text-center mt-24" style="font-size: 13px; color: var(--text-dim);">Lihat daftar lengkap di halaman <a href="anggota.html" style="color: var(--accent-cyan); text-decoration: underline;">anggota</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>&copy; 2026 TEKSA — X TKJ 1 SMKN 1 Tanjunganom</span>
+      <span>Made by <span class="footer__creator">&lt;creator&gt;</span></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script type="module" src="js/struktur.js"></script>
+</body>
+</html>
