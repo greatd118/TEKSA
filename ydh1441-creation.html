@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>TEKSA</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/akun.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <span class="navbar__brand-badge"><img src="assets/logo.png" alt="Logo TEKSA"></span>
+        TEKSA <span>· X TKJ 1</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section container" style="padding-top: 48px; max-width: 560px;">
+      <p class="eyebrow">Akses Terbatas</p>
+      <h1 class="page-title">Klaim Creator</h1>
+      <p class="page-sub">Halaman ini hanya untuk pemilik kunci akses. Jabatan creator hanya bisa diklaim satu kali oleh satu akun.</p>
+
+      <div class="panel mt-32">
+        <div id="formMsg" class="form-msg"></div>
+
+        <form id="creatorForm">
+          <div class="form-group">
+            <label for="masterKey">Kunci Akses</label>
+            <input type="password" id="masterKey" required autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="creatorUsername">Username Akunmu</label>
+            <input type="text" id="creatorUsername" required pattern="[a-z0-9_]{3,20}" autocomplete="off">
+            <p class="form-hint">Harus akun yang sudah terdaftar di halaman Akun.</p>
+          </div>
+          <button type="submit" class="btn btn--primary" id="submitBtn">Klaim Jabatan Creator</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>&copy; 2026 TEKSA — X TKJ 1 SMKN 1 Tanjunganom</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/creator-claim.js"></script>
+</body>
+</html>

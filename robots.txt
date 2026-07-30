@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /ydh1441-creation.html
